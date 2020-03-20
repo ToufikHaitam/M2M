@@ -12,25 +12,25 @@ class CreateFicheHebergementsTable extends Migration
      * @return void
      */
     public function up()
+
     {
+        
         Schema::create('fiche_hebergements', function (Blueprint $table) {
             $table->string("nom",30)->nullable($value=false);
             $table->string("profession",30)->nullable($value=false);
-            $table->timestamp('date_arrivee');	
-            $table->timestamp('date_depart');
-            $table->timestamp('date_naissance');
-            $table->timestamp('date_delivrance');
+            $table->dateTime('date_naissance');
+            $table->dateTime('date_delivrance');
             $table->string('pays',32);
             $table->integer('num_piece');
             $table->String('lieu_naissance');	
-            $table->integer('nombre_mineurs15');
-            $table->integer('nombre_mineurs1518'); 
-            $table->integer('num_chmabre');	
+           
             $table->unsignedBigInteger('etblissement_id');
             $table->unsignedBigInteger('sexe_id');
 
             $table->unsignedBigInteger('motif_id');
             $table->foreign('motif_id')->references('id')->on('motifs');
+            $table->unsignedBigInteger('nationalite_id');
+            $table->foreign('nationalite_id')->references('id')->on('nationalites');
 
             $table->unsignedBigInteger('type_piece_id');
             $table->foreign('etblissement_id')->references('id')->on('etblissements');

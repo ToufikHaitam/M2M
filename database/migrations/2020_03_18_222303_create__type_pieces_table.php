@@ -15,7 +15,7 @@ class CreateTypePiecesTable extends Migration
     {
         Schema::create('type_pieces', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String("10")->nullable($value=false);
+            $table->String("type_piece")->nullable($value=false);
             $table->timestamps();
         });
     }

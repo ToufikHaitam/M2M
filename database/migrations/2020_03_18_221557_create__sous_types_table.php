@@ -15,7 +15,7 @@ class CreateSousTypesTable extends Migration
     {
         Schema::create('sous_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("20")->nullable($value=false);
+            $table->string("soustype")->nullable($value=false);
             $table->timestamps();
             $table->unsignedBigInteger('type_id');
 

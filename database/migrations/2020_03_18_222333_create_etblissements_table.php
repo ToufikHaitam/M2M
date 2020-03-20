@@ -18,29 +18,17 @@ class CreateEtblissementsTable extends Migration
             $table->timestamps();
             $table->string("nom")->nullable($value=false);
             $table->string("adresse")->nullable($value=false);
-            $table->string("nom")->nullable($value=false);
-            $table->string("nom")->nullable($value=false);
-          
-
-
+            $table->integer("capacite")->nullable($value=false);
+             
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('sous_type_id');
             $table->unsignedBigInteger('forchette_id');
             $table->unsignedBigInteger('categerie_etablissement_id');
 
-            $table->foreign('type_id')
-            ->references('id')->on('types')
-             ->onDelete('cascade');
-             $table->foreign('sous_type_id')
-             ->references('id')->on('sous_types')
-              ->onDelete('cascade');
-              $table->foreign('categerie_etablissement_id')
-              ->references('id')->on('categerie_etablissements')
-               ->onDelete('cascade');
-
-               $table->foreign('forchette_id')
-               ->references('id')->on('forchettes')
-                ->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('sous_type_id')->references('id')->on('sous_types');
+            $table->foreign('categerie_etablissement_id')->references('id')->on('categerie_etablissements');
+            $table->foreign('forchette_id')->references('id')->on('forchettes');
 
                
         });

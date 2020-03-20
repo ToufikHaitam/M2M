@@ -15,6 +15,7 @@ class CreateTaxesTable extends Migration
     {
         Schema::create('taxes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("taxe");
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateTaxesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxes');
+        Schema::dropIfExists('taxess');
     }
 }

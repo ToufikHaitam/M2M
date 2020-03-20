@@ -15,6 +15,14 @@ class CreateFicheNuiteeRestaurationsTable extends Migration
     {
         Schema::create('fiche_nuitee_restaurations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->dateTime('date_arrivee');	
+            $table->dateTime('date_depart');
+            $table->integer('nombre_mineurs15');
+            $table->integer('nombre_mineurs1518'); 
+            $table->integer('num_chmabre');	
+            $table->double("montant_restoration");
+            $table->double("montant_boissons");
+            $table->double("montant_supplimentaires");
             $table->unsignedBigInteger('fiche_hebergement_id');
             $table->foreign('fiche_hebergement_id')->references('id')->on('fiche_hebergements');
             $table->timestamps();

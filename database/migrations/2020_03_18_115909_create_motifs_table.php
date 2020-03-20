@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeledeclarationsTable extends Migration
+class CreateMotifsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTeledeclarationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teledeclarations', function (Blueprint $table) {
+        Schema::create('motifs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('etblissement_id');
-            $table->foreign('etblissement_id')->references('id')->on('etblissements'); 
-             $table->timestamps();
+            $table->string("motif",100);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateTeledeclarationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teledeclarations');
+        Schema::dropIfExists('motifs');
     }
 }

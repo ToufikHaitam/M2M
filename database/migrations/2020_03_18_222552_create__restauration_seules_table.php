@@ -15,6 +15,9 @@ class CreateRestaurationSeulesTable extends Migration
     {
         Schema::create('restauration_seules', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->double("montant_restoration");
+            $table->double("montant_boissons");
+            $table->double("montant_supplimentaires");
             $table->unsignedBigInteger('etblissement_id');
             $table->foreign('etblissement_id')->references('id')->on('etblissements'); 
             $table->timestamps();

@@ -15,6 +15,7 @@ class CreateForchettesTable extends Migration
     {
         Schema::create('forchettes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("forchette",100);
             $table->timestamps();
         });
     }
